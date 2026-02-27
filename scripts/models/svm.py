@@ -1,7 +1,7 @@
 import numpy as np
 
 # LINEAR SOFT MARGIN SVM
-class SVM:
+class LinearSVM:
     # min 1/2 ||w||^2  + C max(0, 1 - y_i(w*x_i + b))
     # C is lambda_param (aka how many missclassifications is okay)
     def __init__(self, learning_rate, lambda_param, n_iters=1000):
