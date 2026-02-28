@@ -44,14 +44,11 @@ class RBFSVM:
         return j
 
     def predict_batch(self, X, alpha, y, b, K_row=None):
-        """Batch prediction for multiple samples at once"""
         if K_row is not None:
             return np.dot(alpha * y, K_row) + b
         return np.dot(alpha * y, X) + b
     
     def select_j_heuristic(self, i, Ei, n_rows, alpha, errors, C):
-        """Optimized heuristic selection using numpy operations"""
-        # Create masks for candidate indices
         mask = np.ones(n_rows, dtype=bool)
         mask[i] = False
         
