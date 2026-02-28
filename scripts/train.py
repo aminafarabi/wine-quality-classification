@@ -2,7 +2,6 @@ from data_loader import load_wine_data
 from models.svm import LinearSVM
 from models.kernel import RBFSVM
 from models.log_reg import LogisticRegression
-from models.polynomial import PolynomialSVM
 from model_selection import random_search
 from model_selection import train_test_split
 from model_selection import accuracy, precision, f1_score, recall
@@ -22,7 +21,7 @@ X_train_scaled = (X_train - train_mean) / train_std
 X_test_scaled = (X_test - train_mean) / train_std
 
 results = []
-models_list = [PolynomialSVM]
+models_list = [LinearSVM, RBFSVM, LogisticRegression]
 for model in models_list:
     best_params, best_score = random_search(model, X_train, y_train, k=5, n_trials=30)
 
