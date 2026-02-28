@@ -205,7 +205,7 @@ def random_search(model_class, X, y, k=5, n_trials=30):
 
             #print(f"Trial {n+1}/{n_trials}: lr={lr:.6f}, lambda={lambda_param:.6f}, n_iters={n_iters}")
 
-        elif model_class.__name__ == "RBFSVM" or model_class.__name__ == "PolynomialSVM":
+        elif model_class.__name__ == "RBFSVM":
             gamma = 10 ** np.random.uniform(np.log10(param_ranges["gamma"][0]), np.log10(param_ranges["gamma"][1]))
             c_value = 10 ** np.random.uniform(np.log10(param_ranges["C"][0]), np.log10(param_ranges["C"][1]))
 
